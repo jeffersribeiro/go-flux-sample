@@ -1,8 +1,3 @@
-import { addDays } from "date-fns";
-import { compare } from "bcryptjs";
-import { sign } from "jsonwebtoken";
-
-import auth from "@data/config/auth";
 import { AppDataSource } from "@data/config/data-source";
 
 import { User } from "@data/modules/user/entities/user.entity";

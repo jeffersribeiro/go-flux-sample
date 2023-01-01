@@ -3,7 +3,7 @@ import { compare } from "bcryptjs";
 import { sign } from "jsonwebtoken";
 
 import auth from "@data/config/auth";
-import { AppDataSource, getRepository } from "@data/config/data-source";
+import { AppDataSource } from "@data/config/data-source";
 
 import { User } from "@data/modules/user/entities/user.entity";
 import { Session } from "@data/modules/session/entities/session.entity";
