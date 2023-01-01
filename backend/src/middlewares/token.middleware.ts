@@ -26,7 +26,6 @@ export const token = async (
   if (!session) {
     throw new AppError("Token not found!", 404);
   }
-  console.log(session);
 
   if (!session.active || isBefore(session.expiresAt, new Date())) {
     throw new AppError("The token has expired", 401);
