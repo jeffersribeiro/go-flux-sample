@@ -1,9 +1,10 @@
-import AppError from "@data/common/errors/AppError";
-import auth from "@data/config/auth";
-import { NextFunction, Request, Response } from "express";
 import { verify } from "jsonwebtoken";
+import { NextFunction, Request, Response } from "express";
 
-const authenticate = async (
+import auth from "@data/config/auth";
+import AppError from "@data/common/errors/AppError";
+
+export const authenticate = async (
   req: Request,
   _: Response,
   next: NextFunction
@@ -18,7 +19,7 @@ const authenticate = async (
   try {
     const { sub } = verify(token, auth.jwt.secret);
     req.user = {
-      id: sub.toString(),
+      uid: Number(sub.toString()),
     };
 
     return next();
@@ -26,5 +27,3 @@ const authenticate = async (
     throw new AppError("Token de autenticação inválido!", 401);
   }
 };
-
-export default authenticate;
