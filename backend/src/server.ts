@@ -4,18 +4,26 @@ import "express-async-errors";
 
 import cors from "cors";
 import morgan from "morgan";
-import express, { NextFunction, Request, Response } from "express";
-import { AppDataSource } from "./config/data-source";
-import router from "./routes";
 import { ZodError } from "zod";
 import { QueryFailedError } from "typeorm";
+import express, { NextFunction, Request, Response } from "express";
+
+import router from "./routes";
+
 import AppError from "./common/errors/AppError";
+
+import { AppDataSource } from "./config/data-source";
 
 const { PORT, NODE_ENV } = process.env;
 
 const app = express();
 
 app.use(express.json());
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
 app.use(cors());
 app.use(morgan("dev"));
 
@@ -28,7 +36,7 @@ app.use(
     response: Response,
     _next: NextFunction
   ) => {
-    console.error({ error });
+    console.error(error.message);
 
     if (error instanceof AppError) {
       return response.status(error.code).json({
@@ -58,7 +66,7 @@ app.listen(PORT, async () => {
   try {
     await AppDataSource.initialize();
 
-    console.log(`server started at PORT: ${PORT} | ENV: ${NODE_ENV}`);
+    console.info(`server started at PORT: ${PORT} | ENV: ${NODE_ENV}`);
   } catch (error) {
     console.error(error);
   }
