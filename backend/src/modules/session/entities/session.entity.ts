@@ -26,7 +26,10 @@ export class Session {
   @Column()
   expiresAt: Date;
 
-  @ManyToOne(() => User)
+  @ManyToOne(() => User, {
+    onDelete: "CASCADE",
+    onUpdate: "CASCADE",
+  })
   @JoinColumn()
   user: User;
 

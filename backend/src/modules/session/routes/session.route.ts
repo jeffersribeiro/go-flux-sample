@@ -1,7 +1,7 @@
 import { Router } from "express";
 
 import { token } from "@data/middlewares/token.middleware";
-import authenticate from "@data/middlewares/auth.middleware";
+import { authenticate } from "@data/middlewares/auth.middleware";
 
 import * as controllers from "../controllers";
 

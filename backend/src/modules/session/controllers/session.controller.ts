@@ -20,9 +20,9 @@ export const logout = async (
   req: Request,
   res: Response
 ): Promise<Response> => {
-  const { id } = req.user;
+  const { uid } = req.user;
 
-  await services.logout(Number(id));
+  await services.logout(uid);
 
   return res.status(200).send();
 };
