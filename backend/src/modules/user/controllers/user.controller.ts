@@ -18,10 +18,10 @@ export const update = async (
   req: Request<{}, {}, User>,
   res: Response
 ): Promise<Response> => {
-  const id = req.user.id;
+  const { uid } = req.user;
   const data = req.body;
 
-  await services.update({ id, ...data });
+  await services.update(uid, data);
 
   return res.status(200).send();
 };

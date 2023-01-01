@@ -1,5 +1,7 @@
-import { Post } from "@data/modules/post/entities/post.entity";
-import { Session } from "@data/modules/session/entities/session.entity";
+import { Product } from "@data/modules/product/entities/product.entity";
+import { Purchase } from "@data/modules/purchase/entities/purchase.entity";
+import { Post } from "@modules/post/entities/post.entity";
+import { Session } from "@modules/session/entities/session.entity";
 import {
   Column,
   Entity,
@@ -9,6 +11,11 @@ import {
   OneToMany,
   JoinColumn,
 } from "typeorm";
+
+export enum Type {
+  Customer = "CUSTOMER",
+  Salesman = "SALESMAN",
+}
 
 @Entity("users")
 export class User {
@@ -30,6 +37,9 @@ export class User {
   @Column()
   password: string;
 
+  @Column("enum", { default: Type.Customer, enum: Type })
+  type: Type;
+
   @Column({ default: true })
   isActive: boolean;
 
@@ -40,6 +50,14 @@ export class User {
   @OneToMany(() => Session, (session) => session.user)
   @JoinColumn()
   sessions: Session[];
+
+  @OneToMany(() => Product, (product) => product.user)
+  @JoinColumn()
+  products: Product[];
+
+  @OneToMany(() => Purchase, (purchase) => purchase.user)
+  @JoinColumn()
+  purchases: Purchase[];
 
   @CreateDateColumn()
   createdAt: Date;

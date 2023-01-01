@@ -7,6 +7,7 @@ import AppError from "@data/common/errors/AppError";
 
 export const create = async ({
   email,
+  type,
   firstName,
   lastName,
   password,
@@ -23,6 +24,7 @@ export const create = async ({
   const user = userRepo.create({
     email,
     firstName,
+    type,
     lastName,
     password: hashPassword,
     username,
