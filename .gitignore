@@ -1,5 +1,8 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+# Mobile
+/mobile/.expo
+
 # Compiled output
 /*/dist
 /*/tmp
@@ -37,11 +40,12 @@
 /*/libpeerconnection.log
 /*testem.log
 /*/typings
+*test.*
 
 # System files
 /*/.DS_Store
 /*/Thumbs.db
 
 
-# secrets
+# Secrets
 /*/.env
