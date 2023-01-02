@@ -4,7 +4,7 @@ import { AppDataSource } from "@data/config/data-source";
 import { User } from "@data/modules/user/entities/user.entity";
 import { Product } from "@data/modules/product/entities/product.entity";
 
-export const remove = async (uid: number, { id }: Product): Promise<void> => {
+export const remove = async (uid: number, id: number): Promise<void> => {
   const userRepo = AppDataSource.getRepository(User);
   const productRepo = AppDataSource.getRepository(Product);
 

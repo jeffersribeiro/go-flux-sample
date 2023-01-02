@@ -60,13 +60,13 @@ export const update = async (
 };
 
 export const remove = async (
-  req: Request<Product, {}, Product>,
+  req: Request,
   res: Response
 ): Promise<Response> => {
   const { uid } = req.user;
-  const data = req.params;
+  const { id } = req.params as unknown as { id: number };
 
-  await services.remove(uid, data);
+  await services.remove(uid, id);
 
   return res.status(200).send();
 };
