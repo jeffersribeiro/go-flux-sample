@@ -17,6 +17,8 @@ const productRouter = Router();
 
 productRouter.get("/", authenticate, token, salesman, controllers.list);
 
+productRouter.get("/:id", authenticate, token, salesman, controllers.get);
+
 productRouter.get("/by-seller/:id?", controllers.bySeller);
 
 productRouter.get("/all", controllers.listAll);

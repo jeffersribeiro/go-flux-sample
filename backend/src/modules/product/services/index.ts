@@ -1,4 +1,5 @@
 export * from "./list.service";
+export * from "./get.service";
 export * from "./list-all.service";
 export * from "./by-seller.service";
 export * from "./create.service";

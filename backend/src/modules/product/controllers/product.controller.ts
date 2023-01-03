@@ -1,3 +1,4 @@
+import { User } from "@data/modules/user/entities/user.entity";
 import { Request, Response } from "express";
 import { Product } from "../entities/product.entity";
 
@@ -21,6 +22,14 @@ export const list = async (
 ): Promise<Response> => {
   const { uid } = req.user;
   const products = await services.list(uid);
+
+  return res.status(200).json(products);
+};
+
+export const get = async (req: Request, res: Response): Promise<Response> => {
+  const { uid } = req.user;
+  const { id } = req.params;
+  const products = await services.get(uid, Number(id));
 
   return res.status(200).json(products);
 };
