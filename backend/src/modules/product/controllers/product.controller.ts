@@ -25,6 +25,17 @@ export const list = async (
   return res.status(200).json(products);
 };
 
+export const bySeller = async (
+  req: Request<{}, {}, {}, Product>,
+  res: Response
+): Promise<Response> => {
+  const { id } = req.query;
+  console.log(id);
+  const products = await services.bySeller(id);
+
+  return res.status(200).json(products);
+};
+
 export const listAll = async (
   _req: Request,
   res: Response
