@@ -1,5 +1,6 @@
 import api from "./api";
 import Product from "../../interfaces/Product";
+import { Seller } from "../../interfaces/User";
 
 export const create = async (
   data: Pick<
@@ -28,6 +29,10 @@ export const create = async (
 
 export const listAll = async (): Promise<Product[]> => {
   return await api.get("/product/all");
+};
+
+export const bySeller = async (id?: number): Promise<Seller[]> => {
+  return await api.get(`/product/by-seller`, { params: { id } });
 };
 
 export const list = async (): Promise<Product[]> => {

@@ -8,6 +8,8 @@ export const create = async (
   >
 ): Promise<User> => api.post("/user", data);
 
+export const get = async (): Promise<User> => api.get("/user");
+
 export const update = async (
   data: Pick<User, "firstName" | "lastName" | "username">
 ): Promise<User> => api.patch("/user", data);

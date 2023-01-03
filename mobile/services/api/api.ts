@@ -7,10 +7,10 @@ const api = axios.create({
 
 api.interceptors.request.use(
   async (config: AxiosRequestConfig) => {
-    // const token = await getToken();
-    // if (!token) return config;
+    const token = await getToken();
+    if (!token) return config;
 
-    // config.headers = { Authorization: `Bearer ${token}` };
+    config.headers = { Authorization: `Bearer ${token}` };
 
     return config;
   },
@@ -19,7 +19,7 @@ api.interceptors.request.use(
 
 api.interceptors.response.use(
   (response: AxiosResponse) => Promise.resolve(response.data),
-  (error: AxiosError) => Promise.reject(error.response?.data)
+  (error: AxiosError) => Promise.reject(error)
 );
 
 export default api;
