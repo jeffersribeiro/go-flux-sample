@@ -37,6 +37,9 @@ export class User {
   @Column()
   password: string;
 
+  @Column({ default: null, nullable: true })
+  avatar: string;
+
   @Column("enum", { default: Type.Customer, enum: Type })
   type: Type;
 

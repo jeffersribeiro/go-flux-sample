@@ -14,6 +14,17 @@ export const create = async (
   return res.status(200).json(user);
 };
 
+export const get = async (
+  req: Request<{}, {}, User>,
+  res: Response
+): Promise<Response> => {
+  const { uid } = req.user;
+
+  const user = await services.get(uid);
+
+  return res.status(200).json(user);
+};
+
 export const update = async (
   req: Request<{}, {}, User>,
   res: Response

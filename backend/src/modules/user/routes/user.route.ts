@@ -12,6 +12,8 @@ const userRouter = Router();
 
 userRouter.post("/", validateSchema(createSchema), controllers.create);
 
+userRouter.get("/", authenticate, token, controllers.get);
+
 userRouter.patch(
   "/",
   authenticate,
