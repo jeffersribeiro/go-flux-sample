@@ -12,7 +12,7 @@ export const list = async (id: number): Promise<Order[]> => {
 
   const orders = await orderRepo.find({
     where: { user: { id } },
-    relations: ["purchases", "purchases.product"],
+    relations: ["purchases", "purchases.product", "purchases.product.user"],
   });
 
   return orders;
