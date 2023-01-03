@@ -52,6 +52,12 @@ app.use(
         name: error.name,
         error,
       });
+    } else if (error instanceof Error) {
+      return response.status(400).json({
+        message: error.message,
+        name: error.name,
+        error,
+      });
     }
 
     return response.status(500).json({
