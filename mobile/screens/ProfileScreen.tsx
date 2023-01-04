@@ -45,6 +45,7 @@ const ProfileScreen = () => {
               alignItems: "center",
               justifyContent: "space-between",
             }}
+            width="100%"
             direction="row"
           >
             <View
@@ -73,6 +74,7 @@ const ProfileScreen = () => {
               alignItems: "center",
               justifyContent: "space-between",
             }}
+            width="100%"
             direction="row"
           >
             <View
@@ -101,6 +103,7 @@ const ProfileScreen = () => {
               alignItems: "center",
               justifyContent: "space-between",
             }}
+            width="100%"
             direction="row"
           >
             <View
@@ -136,6 +139,7 @@ const ProfileScreen = () => {
               alignItems: "center",
               justifyContent: "space-between",
             }}
+            width="100%"
             direction="row"
           >
             <View

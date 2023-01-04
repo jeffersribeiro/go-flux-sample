@@ -8,7 +8,7 @@ import TextInput from "../components/Atomic/Molecule/TextInput";
 const LoginScreen = () => {
   const { control, isSubmitting, onSubmit, handleSubmit } = useLogin();
   return (
-    <View width="95%">
+    <View width="100%">
       <Text color="#777777" fontSize="22px">
         Informe o seu e-mail para continuar
       </Text>

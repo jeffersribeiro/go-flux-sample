@@ -8,6 +8,7 @@ interface HistoricItemProps {
 }
 
 const Wrapper = styled.View`
+  align-items: center;
   padding: 8px;
   margin: 8px;
   border-radius: 8px;

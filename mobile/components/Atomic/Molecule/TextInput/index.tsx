@@ -8,7 +8,7 @@ export interface TextInputProps extends DefaultTextInputProps {
 }
 
 export const DefaultTextInput = styled.TextInput<TextInputProps>`
-  width: auto;
+  width: 90%;
   height: 60px;
   font-size: 21px;
   border: solid 1px #e0e0e0;

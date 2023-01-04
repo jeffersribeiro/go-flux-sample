@@ -22,7 +22,8 @@ const Wrapper = styled.View`
     height: 120,
     elevation: 14,
   }}
-  background-color: #FFF;
+  width: 100%;
+  background-color: #fff;
   justify-content: center;
   align-items: flex-start;
   flex-direction: row;
@@ -34,10 +35,10 @@ export const AddBag = (props: AddBagProps) => {
       <View>
         <Counter onChange={props.onChange} quantity={props.quantity} />
       </View>
-      <View width="65%">
+      <View width="60%">
         <Button onPress={props.onAdd} backgorund="#ea1d2c">
           <View
-            width="100%"
+            width="auto"
             direction="row"
             style={{ justifyContent: "space-between" }}
           >

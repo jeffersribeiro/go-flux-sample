@@ -7,7 +7,7 @@ export interface ButtonProps extends DefaultButtonProps {
 }
 
 export const DefaultButton = styled.TouchableOpacity<ButtonProps>`
-  width: auto;
+  width: 90%;
   height: auto;
   margin: 8px;
   padding: 8px;
