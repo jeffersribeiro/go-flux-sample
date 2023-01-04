@@ -13,7 +13,7 @@ const Wrapper = styled.View`
 export const StoreCard = ({ store }: { store: User }) => {
   return (
     <Wrapper>
-      <View style={{ alignItems: "center" }} direction="row">
+      <View align="center" direction="row">
         <FontAwesome5 name="store" size={18} color="#717171" />
         <Text>{store.username}</Text>
       </View>

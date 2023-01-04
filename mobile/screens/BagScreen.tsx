@@ -1,6 +1,7 @@
 import { Text, View } from "../components/Atomic/Atom";
 import { Order } from "../components/Atomic/template/Order";
 import { useBagContext } from "../contexts/BagContext";
+import { NumericFormat } from "react-number-format";
 
 const BagScreen = () => {
   const { bag, total } = useBagContext();
@@ -14,7 +15,17 @@ const BagScreen = () => {
           direction="row"
         >
           <Text color="#a6a5a5">Subtotal</Text>
-          <Text color="#a6a5a5">R$ {total.toFixed(2).replace(".", ",")}</Text>
+          <NumericFormat
+            displayType={"text"}
+            thousandSeparator="."
+            decimalScale={2}
+            fixedDecimalScale
+            decimalSeparator=","
+            thousandsGroupStyle="thousand"
+            prefix={"R$"}
+            value={total}
+            renderText={(value) => <Text color="#3e3e3e">{value}</Text>}
+          />
         </View>
         <View
           style={{ justifyContent: "space-between" }}
@@ -30,7 +41,17 @@ const BagScreen = () => {
           direction="row"
         >
           <Text color="#3e3e3e">Total</Text>
-          <Text color="#3e3e3e">R$ {total.toFixed(2).replace(".", ",")}</Text>
+          <NumericFormat
+            displayType={"text"}
+            thousandSeparator="."
+            decimalScale={2}
+            fixedDecimalScale
+            decimalSeparator=","
+            thousandsGroupStyle="thousand"
+            prefix={"R$"}
+            value={total}
+            renderText={(value) => <Text color="#3e3e3e">{value}</Text>}
+          />
         </View>
       </View>
     </>

@@ -1,4 +1,3 @@
-import { Text, View } from "../components/Atomic/Atom";
 import { Catalog } from "../components/Atomic/template/Catalog";
 import { Stores } from "../components/Atomic/template/Stores";
 import useCatalog from "../hooks/useCatalog";

@@ -6,7 +6,7 @@ import { Seller } from "../../../../interfaces/User";
 export const Store = (props: Seller) => {
   return (
     <TouchableOpacity>
-      <View style={{ alignItems: "center" }} width="150px">
+      <View align="center" width="150px">
         <Image
           source={{
             width: 80,

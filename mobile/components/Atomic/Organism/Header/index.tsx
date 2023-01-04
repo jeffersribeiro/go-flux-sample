@@ -25,13 +25,11 @@ const Header = ({ navigation, options: { title } }: NativeStackHeaderProps) => (
     </View>
     <View
       style={{
-        paddingTop: 8,
-        justifyContent: "center",
-        alignContent: "center",
+        height: "auto",
         alignItems: "center",
         alignSelf: "flex-end",
       }}
-      width="80%"
+      width="70%"
     >
       <Text>{title}</Text>
     </View>

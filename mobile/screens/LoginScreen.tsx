@@ -1,8 +1,9 @@
 import { Controller } from "react-hook-form";
 import { ActivityIndicator } from "react-native";
+
+import useLogin from "../hooks/useLogin";
 import { Button, Text, View } from "../components/Atomic/Atom";
 import TextInput from "../components/Atomic/Molecule/TextInput";
-import useLogin from "../hooks/useLogin";
 
 const LoginScreen = () => {
   const { control, isSubmitting, onSubmit, handleSubmit } = useLogin();

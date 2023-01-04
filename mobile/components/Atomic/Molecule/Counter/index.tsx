@@ -2,26 +2,26 @@ import { useState } from "react";
 import { TouchableOpacity } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { Text, View } from "../../Atom";
+import styled from "styled-components/native";
 
 interface CounterProps {
   quantity: number;
   onChange: (quantity: number) => void;
 }
 
+const Wrapper = styled.View`
+  border-radius: 5px;
+  border-width: 0.5px;
+  margin-top: 8px;
+  padding: 5px;
+  align-items: center;
+  border-color: #707070;
+  flex-direction: row;
+`;
+
 export const Counter = ({ onChange, quantity }: CounterProps) => {
   return (
-    <View
-      style={{
-        borderRadius: 5,
-        borderWidth: 0.5,
-        paddingVertical: 8,
-        marginTop: 8,
-        padding: 8,
-        alignItems: "center",
-        borderColor: "#707070",
-      }}
-      direction="row"
-    >
+    <Wrapper>
       <TouchableOpacity onPress={() => onChange(quantity && quantity - 1)}>
         <AntDesign color="#ea1d2c" size={26} name="minus" />
       </TouchableOpacity>
@@ -33,6 +33,6 @@ export const Counter = ({ onChange, quantity }: CounterProps) => {
       <TouchableOpacity onPress={() => onChange(quantity + 1)}>
         <AntDesign color="#ea1d2c" size={26} name="plus" />
       </TouchableOpacity>
-    </View>
+    </Wrapper>
   );
 };

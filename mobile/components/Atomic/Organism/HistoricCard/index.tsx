@@ -1,4 +1,5 @@
 import { Image } from "react-native";
+import styled from "styled-components/native";
 import Order from "../../../../interfaces/Order";
 import { Text, View } from "../../Atom";
 
@@ -6,17 +7,17 @@ interface HistoricItemProps {
   order: Order;
 }
 
+const Wrapper = styled.View`
+  padding: 8px;
+  margin: 8px;
+  border-radius: 8px;
+  border-width: 2px;
+  border-color: #f2f2f2;
+`;
+
 export const HistoricItem = ({ order }: HistoricItemProps) => {
   return (
-    <View
-      style={{
-        padding: 8,
-        margin: 8,
-        borderRadius: 8,
-        borderWidth: 2,
-        borderColor: "#f2f2f2",
-      }}
-    >
+    <Wrapper>
       <Text>Pedido concluído №{order.id}</Text>
       <View>
         {order.purchases.map((purchase) => (
@@ -46,6 +47,6 @@ export const HistoricItem = ({ order }: HistoricItemProps) => {
           </View>
         ))}
       </View>
-    </View>
+    </Wrapper>
   );
 };

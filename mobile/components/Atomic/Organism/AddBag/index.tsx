@@ -1,3 +1,5 @@
+import { NumericFormat } from "react-number-format";
+import styled from "styled-components/native";
 import { Button, Text, View } from "../../Atom";
 import { Counter } from "../../Molecule/Counter";
 
@@ -8,25 +10,27 @@ interface AddBagProps {
   onAdd: () => void;
 }
 
+const Wrapper = styled.View`
+  ${{
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 7,
+    },
+    shadowOpacity: 0.41,
+    shadowRadius: 9.11,
+    height: 120,
+    elevation: 14,
+  }}
+  background-color: #FFF;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: row;
+`;
+
 export const AddBag = (props: AddBagProps) => {
   return (
-    <View
-      direction="row"
-      style={{
-        backgroundColor: "#FFF",
-        shadowColor: "#000",
-        shadowOffset: {
-          width: 0,
-          height: 7,
-        },
-        shadowOpacity: 0.41,
-        shadowRadius: 9.11,
-        height: 120,
-        elevation: 14,
-        justifyContent: "center",
-        alignItems: "flex-start",
-      }}
-    >
+    <Wrapper>
       <View>
         <Counter onChange={props.onChange} quantity={props.quantity} />
       </View>
@@ -38,13 +42,24 @@ export const AddBag = (props: AddBagProps) => {
             style={{ justifyContent: "space-between" }}
           >
             <Text color="#FFF">Adicionar</Text>
-            <Text color="#FFF">
-              R${" "}
-              {(props.unitPrice * props.quantity).toFixed(2).replace(".", ",")}
-            </Text>
+            <NumericFormat
+              displayType={"text"}
+              thousandSeparator="."
+              decimalScale={2}
+              fixedDecimalScale
+              decimalSeparator=","
+              thousandsGroupStyle="thousand"
+              prefix={"R$"}
+              value={props.unitPrice * props.quantity}
+              renderText={(value) => (
+                <Text color="#FFF" fontSize="17px">
+                  {value}
+                </Text>
+              )}
+            />
           </View>
         </Button>
       </View>
-    </View>
+    </Wrapper>
   );
 };

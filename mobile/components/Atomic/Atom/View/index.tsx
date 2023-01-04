@@ -6,6 +6,7 @@ export interface ViewProps extends DefaultViewProps {
   children: JSX.Element | JSX.Element[];
   width?: string | number;
   direction?: "row" | "column";
+  align?: string;
 }
 
 export const DefaultView = styled.View<ViewProps>`
@@ -14,16 +15,20 @@ export const DefaultView = styled.View<ViewProps>`
   flex-direction: ${({ direction }) => direction};
   margin: 3px;
   padding: 3px;
+  ${({ align }) => ({
+    alignItems: align,
+    justifyContent: align,
+  })};
 `;
 
 export const View = ({
   children,
   direction = "column",
   width = "auto",
-
+  align = "flex-start",
   ...props
 }: ViewProps) => (
-  <DefaultView direction={direction} width={width} {...props}>
+  <DefaultView align={align} direction={direction} width={width} {...props}>
     {children}
   </DefaultView>
 );

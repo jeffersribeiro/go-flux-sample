@@ -32,11 +32,7 @@ const OrderScreen = () => {
       </View>
     );
 
-  return (
-    <View>
-      <OrderHistoric DATA={orders} />
-    </View>
-  );
+  return <OrderHistoric DATA={orders} />;
 };
 
 export default OrderScreen;

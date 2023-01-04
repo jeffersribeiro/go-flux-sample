@@ -1,10 +1,11 @@
 import React from "react";
 import { AntDesign } from "@expo/vector-icons";
-import { TouchableOpacity, View } from "react-native";
-import { Text } from "../../Atom";
+import { TouchableOpacity } from "react-native";
+import { Text, View } from "../../Atom";
 import { RootTabParamList } from "../../../../types";
 import { BottomTabNavigationEventMap } from "@react-navigation/bottom-tabs";
 import { NavigationHelpers, ParamListBase } from "@react-navigation/native";
+import styled from "styled-components/native";
 
 interface TabProps {
   navigation: NavigationHelpers<ParamListBase, BottomTabNavigationEventMap>;
@@ -19,41 +20,40 @@ interface TabProps {
   }>;
 }
 
+export const Wrapper = styled.View`
+  height: 90px;
+  width: 100%;
+  padding: 20px;
+  align-self: center;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #fff;
+`;
+
 export const Tab = (props: TabProps) => {
   return (
     <>
-      <View
-        style={{
-          height: 90,
-          width: "100%",
-          padding: 20,
-          alignSelf: "center",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          backgroundColor: "#FFF",
-        }}
-      >
+      <Wrapper>
         {props.TABS.map(({ icon, title, name }, index) => (
           <TouchableOpacity
             onPress={() => props.navigation.navigate(name, { active: name })}
-            style={{
-              alignSelf: "center",
-              alignItems: "center",
-            }}
             key={name}
           >
-            <AntDesign
-              color={props.state.index === index ? "#050505" : "#646464dd"}
-              size={30}
-              style={{ marginBottom: -3 }}
-              name={icon}
-            />
-            <Text color={props.state.index === index ? "#050505" : "#646464dd"}>
-              {title}
-            </Text>
+            <View align="center">
+              <AntDesign
+                color={props.state.index === index ? "#050505" : "#646464dd"}
+                size={30}
+                name={icon}
+              />
+              <Text
+                color={props.state.index === index ? "#050505" : "#646464dd"}
+              >
+                {title}
+              </Text>
+            </View>
           </TouchableOpacity>
         ))}
-      </View>
+      </Wrapper>
     </>
   );
 };

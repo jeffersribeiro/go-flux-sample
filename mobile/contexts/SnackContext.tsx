@@ -1,7 +1,6 @@
-import { AntDesign } from "@expo/vector-icons";
-
-import { Modal, Text, View } from "react-native";
 import { createContext, useContext, useEffect, useState } from "react";
+
+import { SnackBar } from "../components/Atomic/Organism/SnackBar";
 
 interface SnackContext {
   snack: boolean;
@@ -16,43 +15,6 @@ export const snackContext = createContext({} as SnackContext);
 interface SnackBarProviderProps {
   children: JSX.Element | JSX.Element[];
 }
-
-export const SnackBar = (props: any) => (
-  <>
-    <Modal visible={props.visible} animationType="slide" transparent={true}>
-      <View
-        style={{
-          flex: 1,
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <View
-          style={{
-            margin: 20,
-            backgroundColor: "white",
-            borderRadius: 8,
-            padding: 35,
-            alignItems: "center",
-            shadowColor: "#000",
-            shadowOffset: {
-              width: 0,
-              height: 2,
-            },
-            shadowOpacity: 0.25,
-            shadowRadius: 4,
-            elevation: 5,
-          }}
-        >
-          <View>
-            <AntDesign name="closecircleo" size={24} color="black" />
-          </View>
-          <Text>{props.message}</Text>
-        </View>
-      </View>
-    </Modal>
-  </>
-);
 
 export const SnackBarProvider = (props: SnackBarProviderProps) => {
   const [snack, setSnack] = useState(false);

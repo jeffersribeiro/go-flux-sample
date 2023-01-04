@@ -5,6 +5,7 @@ import Card from "../../Molecule/Card";
 
 import Product from "../../../../interfaces/Product";
 import { useNavigation } from "@react-navigation/native";
+import { NumericFormat } from "react-number-format";
 
 interface ProductProps extends Product {}
 
@@ -20,9 +21,21 @@ const ProductCard = (props: ProductProps) => {
           <Text color="gray" fontSize="15px">
             {props.description}
           </Text>
-          <Text color="#50a773" fontSize="17px">
-            A partir de R$ {props.price.toFixed(2).replace(".", ",")}
-          </Text>
+          <NumericFormat
+            displayType={"text"}
+            thousandSeparator="."
+            decimalScale={2}
+            fixedDecimalScale
+            decimalSeparator=","
+            thousandsGroupStyle="thousand"
+            prefix={"R$"}
+            value={props.price}
+            renderText={(value) => (
+              <Text color="#50a773" fontSize="17px">
+                {value}
+              </Text>
+            )}
+          />
         </View>
         <View width="auto">
           <Image
