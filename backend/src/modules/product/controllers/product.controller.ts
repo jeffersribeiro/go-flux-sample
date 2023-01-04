@@ -35,10 +35,10 @@ export const get = async (req: Request, res: Response): Promise<Response> => {
 };
 
 export const bySeller = async (
-  req: Request<{}, {}, {}, Product>,
+  req: Request<Product, {}, {}, Product>,
   res: Response
 ): Promise<Response> => {
-  const { id } = req.query;
+  const { id } = req.params;
   console.log(id);
   const products = await services.bySeller(id);
 
