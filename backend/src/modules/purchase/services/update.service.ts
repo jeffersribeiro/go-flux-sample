@@ -1,6 +1,5 @@
 import { AppDataSource } from "@data/config/data-source";
-
-import { User } from "../entities/purchase.entity";
+import { User } from "@data/modules/user/entities/user.entity";
 
 export const update = async (
   id: number,

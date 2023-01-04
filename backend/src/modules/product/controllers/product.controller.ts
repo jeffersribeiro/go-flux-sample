@@ -1,4 +1,3 @@
-import { User } from "@data/modules/user/entities/user.entity";
 import { Request, Response } from "express";
 import { Product } from "../entities/product.entity";
 

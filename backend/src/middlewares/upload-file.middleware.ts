@@ -5,7 +5,7 @@ export const uploadFile = async (
   _res: Response,
   next
 ): Promise<NextFunction> => {
-  const files = req.files;
+  // const files = req.files;
   const image = "url_image";
   req.body.image = image;
 
