@@ -24,13 +24,12 @@ export const login = async ({
 
   if (!user) throw new Error("User not found!");
 
-  const session = await sessionRepo
-    .createQueryBuilder()
-    .select("sessions.id")
-    .from(Session, "sessions")
-    .where("sessions.userId = :id", { id: user.id })
-    .andWhere("sessions.active = :active", { active: true })
-    .getOne();
+  const session = await sessionRepo.findOneBy({
+    user: {
+      id: user.id,
+    },
+    active: true,
+  });
 
   if (session) await sessionRepo.update(session.id, { active: false });
 
