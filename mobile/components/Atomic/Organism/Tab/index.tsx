@@ -14,7 +14,7 @@ interface TabProps {
   }>;
   TABS: Array<{
     name: keyof RootTabParamList;
-    component: ({ navigation }: any) => JSX.Element;
+    Component: (props: any) => JSX.Element;
     title: string;
     icon: React.ComponentProps<typeof AntDesign>["name"];
   }>;

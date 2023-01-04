@@ -20,7 +20,7 @@ declare global {
 export type RootStackParamList = {
   Root: NavigatorScreenParams<RootTabParamList> | undefined;
   ProductModal: Product;
-  BagScreen: Product[];
+  BagScreen: undefined;
   NotFound: undefined;
   Login: undefined;
 };

@@ -88,12 +88,12 @@ function BottomTabNavigator() {
         tabBarActiveTintColor: "#000",
       }}
     >
-      {TABS.map(({ component, name, title }) => (
+      {TABS.map(({ Component, name, title }) => (
         <BottomTab.Screen
           key={name}
           name={name}
           options={{ title }}
-          component={component}
+          component={Component}
         />
       ))}
     </BottomTab.Navigator>
@@ -102,25 +102,25 @@ function BottomTabNavigator() {
 
 const TABS: Array<{
   name: keyof RootTabParamList;
-  component: ({ navigation }: any) => JSX.Element;
+  Component: (props: any) => JSX.Element;
   title: string;
   icon: React.ComponentProps<typeof AntDesign>["name"];
 }> = [
   {
     name: "Catalog",
-    component: CatalogScreen,
+    Component: CatalogScreen,
     title: "Inicio",
     icon: "home",
   },
   {
     name: "Order",
-    component: OrderScreen,
+    Component: OrderScreen,
     title: "Pedidos",
     icon: "filetext1",
   },
   {
     name: "Profile",
-    component: ProfileScreen,
+    Component: ProfileScreen,
     title: "Perfil",
     icon: "user",
   },

@@ -1,7 +1,10 @@
 import { Feather } from "@expo/vector-icons";
+import { BottomTabNavigationEventMap } from "@react-navigation/bottom-tabs";
+import { NavigationHelpers, ParamListBase } from "@react-navigation/native";
 import { TouchableOpacity } from "react-native";
-import { NumericFormat } from "react-number-format";
 import styled from "styled-components/native";
+import { NumericFormat } from "react-number-format";
+
 import { useBagContext } from "../../../../contexts/BagContext";
 import { Text } from "../../Atom";
 
@@ -15,14 +18,18 @@ const Wrapper = styled.View`
   background-color: #ea1d2c;
 `;
 
-export const CartBar = (props: any) => {
+interface Props {
+  navigation: NavigationHelpers<ParamListBase, BottomTabNavigationEventMap>;
+}
+
+export const CartBar = ({ navigation }: Props) => {
   const { total } = useBagContext();
 
   if (!total) return <></>;
 
   return (
     <>
-      <TouchableOpacity onPress={() => props.navigation.navigate("BagScreen")}>
+      <TouchableOpacity onPress={() => navigation.navigate("BagScreen")}>
         <Wrapper>
           <Feather name="shopping-bag" size={20} color="#FFF" />
 

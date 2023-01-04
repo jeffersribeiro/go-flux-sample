@@ -23,7 +23,12 @@ const BoxShadow = styled.View`
   }}
 `;
 
-export const SnackBar = (props: any) => (
+interface SnackBarProps {
+  visible: boolean;
+  message: string;
+}
+
+export const SnackBar = (props: SnackBarProps) => (
   <>
     <Modal visible={props.visible} animationType="slide" transparent={true}>
       <View align="center">
